@@ -36,3 +36,60 @@ n = 5
 Question 2: Write a function which takes n as input and returns the corresponding nth fibonacci number.
 NOTE: You have to use recursion.
       You have to make sure program works even for 100th fibonacci number.
+      
+question 0:
+from string import ascii_lowercase
+
+n=int(input("ënter till which the pattern is to be printed")) 
+width = 4*n - 3
+i = ascii_lowercase[:n]
+i = i[::-1] + i[1:]
+
+for j in i:
+    letter = i[:i.index(j)]
+    letter = '-'.join(letter + j + letter[::-1])
+    dash = (width - len(letter)) // 2 * '-'
+    print(dash + letter + dash)
+
+question 1:
+n=int(input("enter the length"))
+count1=1
+count2=1
+arr=[]
+arr1=[]
+p=1
+val=n
+while(val>0):
+	arr1=[]
+	arr=[]
+	q=((val*val)+p)
+	if(n-val>0):
+		a=2*(n-val)
+		for i in range(a):
+			arr.append('*')
+	while(count1<val+1):
+		arr1.append(p)
+		p+=1
+		count1+=1
+ 
+	while(count2<val+1):
+		arr1.append(q)
+		q+=1
+		count2+=1
+ 
+	print(*arr, sep='',end='')	
+	print(*arr1, sep='0',end='\n')	
+	val-=1
+	count1=1
+
+question 2:
+def fib(n):
+    a=0
+    b=1
+    for j in range(1,n):
+        c=a+b
+        b=a
+        a=c
+    return c
+n=int(input("enter till the fibo"))
+print(fib(n))
